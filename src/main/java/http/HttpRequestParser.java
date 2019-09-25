@@ -50,7 +50,7 @@ public class HttpRequestParser {
     private static HttpHeader parseHeader(BufferedReader br) throws IOException {
         List<String> headerLines = new ArrayList<>();
         String header = br.readLine();
-        while(!"".equals(header)) {
+        while (!"".equals(header)) {
             if (header == null) {
                 break;
             }

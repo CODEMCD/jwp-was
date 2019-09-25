@@ -3,7 +3,6 @@ package webserver;
 import controller.Controller;
 import http.HttpRequest;
 import http.HttpResponse;
-import http.MimeType;
 import view.View;
 import view.ViewResolver;
 
@@ -27,9 +26,6 @@ public class DispatcherServlet {
     private static void handleStaticRequest(HttpRequest httpRequest, HttpResponse httpResponse)
             throws IOException, URISyntaxException {
         byte[] body = ViewResolver.resolve(httpRequest.getUri());
-
-        httpResponse.setStatus(200);
-        httpResponse.addHeader("Content-Type", MimeType.of(httpRequest.getUri()));
-        httpResponse.setBody(body);
+        httpResponse.response2xx(body, httpRequest);
     }
 }

@@ -3,6 +3,7 @@ package webserver;
 import http.HttpRequest;
 import http.HttpRequestParser;
 import http.HttpResponse;
+import http.HttpResponseSender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,21 +24,21 @@ public class RequestHandler implements Runnable {
     }
 
     public void run() {
-        logger.debug("New Client Connect! Connected IP : {}, Port : {}", connection.getInetAddress(),
+        logger.debug("New Client Connect! Connected IP : {}, Port : {}",
+                connection.getInetAddress(),
                 connection.getPort());
 
-        try (InputStream in = connection.getInputStream(); OutputStream out = connection.getOutputStream()) {
+        try (InputStream in = connection.getInputStream();
+             OutputStream out = connection.getOutputStream()) {
             HttpRequest httpRequest = HttpRequestParser.parse(in);
             HttpResponse httpResponse = new HttpResponse();
             DataOutputStream dos = new DataOutputStream(out);
 
             DispatcherServlet.doDispatch(httpRequest, httpResponse);
-            httpResponse.send(dos);
+            HttpResponseSender.send(httpResponse, dos);
             dos.close();
-        } catch (IOException e) {
+        } catch (IOException | URISyntaxException e) {
             logger.error(e.getMessage());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
         }
     }
 }

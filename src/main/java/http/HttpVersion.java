@@ -24,4 +24,8 @@ public enum HttpVersion {
                 .orElseThrow(NotFoundVersionException::new)
                 ;
     }
+
+    public String getVersion() {
+        return version;
+    }
 }

@@ -12,7 +12,7 @@ public class ModelAndView implements View {
 
     @Override
     public void render(HttpRequest httpRequest, HttpResponse httpResponse) {
-
+        httpResponse.response2xx(null, httpRequest);
     }
 
     @Override

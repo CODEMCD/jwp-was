@@ -24,7 +24,8 @@ public class HttpRequest {
         private HttpHeader header;
         private HttpBody body;
 
-        public HttpRequestBuilder() {}
+        public HttpRequestBuilder() {
+        }
 
         public HttpRequestBuilder requestLine(HttpRequestLine requestLine) {
             this.requestLine = requestLine;

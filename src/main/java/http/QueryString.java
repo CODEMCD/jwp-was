@@ -9,7 +9,8 @@ public class QueryString {
 
     private Map<String, String> parameters = new HashMap<>();
 
-    public QueryString() {}
+    public QueryString() {
+    }
 
     public QueryString(String queryString) {
         parseQueryString(queryString);

@@ -11,7 +11,8 @@ public class HttpHeader {
 
     private Map<String, String> headers = new HashMap<>();
 
-    public HttpHeader() { }
+    public HttpHeader() {
+    }
 
     public HttpHeader(List<String> headers) {
         for (String header : headers) {
