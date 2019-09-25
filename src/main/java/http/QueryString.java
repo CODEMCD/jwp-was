@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class QueryString {
-    public static final String QUERY_STRING_DELIMITER = "?";
     private static final String PARAMETER_DELIMITER = "&";
     private static final String QUERY_DELIMITER = "=";
 

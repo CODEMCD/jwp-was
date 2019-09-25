@@ -2,9 +2,9 @@ package http;
 
 import http.exception.EmptyUriException;
 
-import static http.QueryString.QUERY_STRING_DELIMITER;
-
 public class HttpUri {
+    private static final String QUERY_STRING_DELIMITER = "?";
+
     private final String uri;
 
     public HttpUri(String uri) {
