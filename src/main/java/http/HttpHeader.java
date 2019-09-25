@@ -6,10 +6,12 @@ import java.util.Map;
 import java.util.Set;
 
 public class HttpHeader {
+    private static final String CONTENT_LENGTH_KEY = "Content-Length";
+    private static final String CONTENT_EMPTY = "-1";
+
     private Map<String, String> headers = new HashMap<>();
 
-    public HttpHeader() {
-    }
+    public HttpHeader() { }
 
     public HttpHeader(List<String> headers) {
         for (String header : headers) {
@@ -25,7 +27,7 @@ public class HttpHeader {
     }
 
     public int getContentLength() {
-        return Integer.parseInt(headers.getOrDefault("Content-Length", "-1"));
+        return Integer.parseInt(headers.getOrDefault(CONTENT_LENGTH_KEY, CONTENT_EMPTY));
     }
 
     public void addHeader(String key, String value) {
