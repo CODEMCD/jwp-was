@@ -22,4 +22,9 @@ public class HttpRequestLine {
     public HttpVersion getVersion() {
         return version;
     }
+
+    @Override
+    public String toString() {
+        return method.getMethod() + " " + uri.toString() + " " + version.getVersion() + "\r\n";
+    }
 }

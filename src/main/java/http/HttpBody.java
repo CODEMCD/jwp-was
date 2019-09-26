@@ -18,4 +18,9 @@ public class HttpBody {
         queryString.add(body);
         return true;
     }
+
+    @Override
+    public String toString() {
+        return body;
+    }
 }

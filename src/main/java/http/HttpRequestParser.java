@@ -26,12 +26,14 @@ public class HttpRequestParser {
             HttpHeader httpHeader = parseHeader(br);
             HttpBody httpBody = parserBody(br, httpHeader);
 
+            log.info("\n----------\n{}----------",
+                    httpRequestLine.toString() + httpHeader.toString() + httpBody.toString());
+
             return builder
                     .requestLine(httpRequestLine)
                     .header(httpHeader)
                     .body(httpBody)
                     .build();
-
         } catch (IOException e) {
             log.error(e.getMessage());
             throw new IllegalArgumentException();

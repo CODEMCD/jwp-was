@@ -3,8 +3,6 @@ package http;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Map;
-
 public class HttpResponse {
     private static final Logger log = LoggerFactory.getLogger(HttpResponse.class);
     private static final String CRLF = "\r\n";
@@ -46,13 +44,7 @@ public class HttpResponse {
     }
 
     public String makeHeaderLines() {
-        StringBuilder sb = new StringBuilder();
-        for (Map.Entry<String, String> header : header.getHeaders().entrySet()) {
-            sb.append(header.getKey() + ": " + header.getValue() + CRLF);
-        }
-        sb.append(CRLF);
-
-        return sb.toString();
+        return header.toString();
     }
 
     public HttpStatus getStatus() {
