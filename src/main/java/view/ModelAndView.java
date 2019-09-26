@@ -2,6 +2,7 @@ package view;
 
 import http.HttpRequest;
 import http.HttpResponse;
+import http.MimeType;
 
 public class ModelAndView implements View {
     private String viewName;
@@ -12,7 +13,7 @@ public class ModelAndView implements View {
 
     @Override
     public void render(HttpRequest httpRequest, HttpResponse httpResponse) {
-        httpResponse.response2xx(null, httpRequest);
+        httpResponse.response2xx("".getBytes(), MimeType.of(httpRequest.getUri()));
     }
 
     @Override

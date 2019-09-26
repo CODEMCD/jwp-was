@@ -1,9 +1,9 @@
 package http;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class HttpHeader {
     private static final String CONTENT_LENGTH_KEY = "Content-Length";
@@ -35,7 +35,7 @@ public class HttpHeader {
         headers.put(key, value);
     }
 
-    public Set<Map.Entry<String, String>> getHeaders() {
-        return headers.entrySet();
+    public Map<String, String> getHeaders() {
+        return Collections.unmodifiableMap(headers);
     }
 }

@@ -20,9 +20,9 @@ public class HttpResponse {
     public HttpResponse() {
     }
 
-    public void response2xx(byte[] body, HttpRequest httpRequest) {
+    public void response2xx(byte[] body, String mimeType) {
         setStatus(OK_CODE);
-        addHeader(CONTENT_TYPE_KEY, MimeType.of(httpRequest.getUri()));
+        addHeader(CONTENT_TYPE_KEY, mimeType);
         setBody(body);
     }
 
@@ -31,22 +31,22 @@ public class HttpResponse {
         addHeader(LOCATION_KEY, "/" + viewName);
     }
 
-    public void setStatus(int statusCode) {
+    private void setStatus(int statusCode) {
         status = HttpStatus.of(statusCode);
     }
 
-    public void addHeader(String key, String value) {
+    private void addHeader(String key, String value) {
         header.addHeader(key, value);
     }
 
-    public void setBody(byte[] body) {
+    private void setBody(byte[] body) {
         this.body = body;
         header.addHeader(CONTENT_TYPE_KEY, String.valueOf(body.length));
     }
 
     public String makeHeaderLines() {
         StringBuilder sb = new StringBuilder();
-        for (Map.Entry<String, String> header : header.getHeaders()) {
+        for (Map.Entry<String, String> header : header.getHeaders().entrySet()) {
             sb.append(header.getKey() + ": " + header.getValue() + CRLF);
         }
         sb.append(CRLF);
