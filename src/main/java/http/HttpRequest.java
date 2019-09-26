@@ -59,6 +59,10 @@ public class HttpRequest {
         return requestLine.getMethod();
     }
 
+    public String getHeaderAttribute(String key) {
+        return header.getValue(key);
+    }
+
     public String getQueryParameter(String key) {
         return queryString.getParameter(key);
     }
