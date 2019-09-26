@@ -9,6 +9,7 @@ public class HttpResponse {
     private static final Logger log = LoggerFactory.getLogger(HttpResponse.class);
     private static final String CRLF = "\r\n";
     private static final String CONTENT_TYPE_KEY = "Content-Type";
+    private static final String CONTENT_LENGTH_KEY = "Content-Length";
     private static final String LOCATION_KEY = "Location";
     private static final int OK_CODE = 200;
     private static final int FOUND_CODE = 302;
@@ -41,7 +42,7 @@ public class HttpResponse {
 
     private void setBody(byte[] body) {
         this.body = body;
-        header.addHeader(CONTENT_TYPE_KEY, String.valueOf(body.length));
+        header.addHeader(CONTENT_LENGTH_KEY, String.valueOf(body.length));
     }
 
     public String makeHeaderLines() {

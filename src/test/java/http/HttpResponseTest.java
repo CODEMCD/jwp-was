@@ -11,6 +11,7 @@ public class HttpResponseTest {
         HttpResponse httpResponse = new HttpResponse();
         httpResponse.response2xx("".getBytes(), MimeType.of("/script.js"));
         assertEquals(httpResponse.getStatus(), HttpStatus.OK);
+        assertEquals(httpResponse.getStatusLine(), "HTTP/1.1 200 OK\r\n");
     }
 
     @Test
@@ -18,5 +19,6 @@ public class HttpResponseTest {
         HttpResponse httpResponse = new HttpResponse();
         httpResponse.response3xx("index.html");
         assertEquals(httpResponse.getStatus(), HttpStatus.FOUND);
+        assertEquals(httpResponse.getStatusLine(), "HTTP/1.1 302 FOUND\r\n");
     }
 }
