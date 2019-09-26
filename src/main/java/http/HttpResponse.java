@@ -30,12 +30,12 @@ public class HttpResponse {
         addHeader(LOCATION_KEY, "/" + viewName);
     }
 
-    private void setStatus(int statusCode) {
-        status = HttpStatus.of(statusCode);
+    public void addHeader(String key, String value) {
+        header.addHeader(key, value);
     }
 
-    private void addHeader(String key, String value) {
-        header.addHeader(key, value);
+    private void setStatus(int statusCode) {
+        status = HttpStatus.of(statusCode);
     }
 
     private void setBody(byte[] body) {

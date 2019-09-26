@@ -2,6 +2,7 @@ package webserver;
 
 import controller.Controller;
 import controller.CreateUserController;
+import controller.LoginUserController;
 import http.HttpRequest;
 import webserver.exception.NotFoundUriMappingException;
 
@@ -13,6 +14,7 @@ public class HandlerMapping {
 
     static {
         uriMapping.put("/user/create", new CreateUserController());
+        uriMapping.put("/user/login", new LoginUserController());
     }
 
     public static Controller handle(HttpRequest httpRequest) {

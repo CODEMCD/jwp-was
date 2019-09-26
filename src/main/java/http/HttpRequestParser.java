@@ -26,7 +26,7 @@ public class HttpRequestParser {
             HttpHeader httpHeader = parseHeader(br);
             HttpBody httpBody = parserBody(br, httpHeader);
 
-            log.info("\n----------\n{}----------",
+            log.info("\n----------\n{}\n----------",
                     httpRequestLine.toString() + httpHeader.toString() + httpBody.toString());
 
             return builder
