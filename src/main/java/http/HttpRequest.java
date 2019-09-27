@@ -51,6 +51,10 @@ public class HttpRequest {
         return requestLine.getUri().isFileUri();
     }
 
+//    public HttpSession getSession() {
+//        if (header.getValue("Cookie"))
+//    }
+
     public String getUri() {
         return requestLine.getUri().toString();
     }

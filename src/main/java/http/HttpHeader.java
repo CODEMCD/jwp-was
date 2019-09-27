@@ -22,6 +22,10 @@ public class HttpHeader {
             String value = header.substring(delimiter + 1);
             this.headers.put(key.trim(), value.trim());
         }
+
+        if (this.headers.get("Cookie") != null) {
+
+        }
     }
 
     public String getValue(String key) {
